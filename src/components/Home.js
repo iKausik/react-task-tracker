@@ -24,7 +24,7 @@ function Home() {
 
   // Fetch Tasks
   const fetchTasks = async () => {
-    const res = await fetch(API_HOST);
+    const res = await fetch(`${API_HOST}`);
     const data = await res.json();
 
     return data;
@@ -43,7 +43,7 @@ function Home() {
 
   // Add Task
   const addTask = async (task) => {
-    const res = await fetch(API_HOST, {
+    const res = await fetch(`${API_HOST}`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(task),
