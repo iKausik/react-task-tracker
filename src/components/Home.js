@@ -5,6 +5,9 @@ import Header from "./Header";
 import Tasks from "./Tasks";
 import AddTask from "./AddTask";
 
+const API_HOST = process.env.REACT_APP_API_HOST;
+console.log(API_HOST);
+
 function Home() {
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
@@ -21,7 +24,7 @@ function Home() {
 
   // Fetch Tasks
   const fetchTasks = async () => {
-    const res = await fetch("http://localhost:5000/tasks");
+    const res = await fetch(API_HOST);
     const data = await res.json();
 
     return data;
@@ -29,7 +32,10 @@ function Home() {
 
   // Fetch Task
   const fetchTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`);
+    const API_HOST_WITH_ID = `${API_HOST}/${id}`;
+    console.log(API_HOST_WITH_ID);
+
+    const res = await fetch(API_HOST_WITH_ID);
     const data = await res.json();
 
     return data;
@@ -37,7 +43,7 @@ function Home() {
 
   // Add Task
   const addTask = async (task) => {
-    const res = await fetch("http://localhost:5000/tasks", {
+    const res = await fetch(API_HOST, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(task),
@@ -52,8 +58,12 @@ function Home() {
 
   // Delete Task
   const deleteTask = async (id) => {
+    const API_HOST_WITH_ID = `${API_HOST}/${id}`;
+
     // delete from the server
-    await fetch(`http://localhost:5000/tasks/${id}`, { method: "DELETE" });
+    await fetch(API_HOST_WITH_ID, {
+      method: "DELETE",
+    });
     // delete from the ui
     setTasks(tasks.filter((task) => task.id !== id));
   };
@@ -63,7 +73,9 @@ function Home() {
     const taskToToggle = await fetchTask(id);
     const updatedTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
 
-    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+    const API_HOST_WITH_ID = `${API_HOST}/${id}`;
+
+    const res = await fetch(API_HOST_WITH_ID, {
       method: "PUT",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(updatedTask),

@@ -4,19 +4,19 @@
       "id": 1,
       "text": "Doctors appointment",
       "day": "Feb 5th at 2:30pm",
-      "reminder": true
+      "reminder": false
     },
     {
-      "text": "build project",
-      "day": "8th may, 2021",
-      "reminder": true,
-      "id": 3
-    },
-    {
-      "text": "travel nyc",
-      "day": "8th october, 2022",
+      "text": "Shop Vegetables",
+      "day": "11 may, 2021",
       "reminder": false,
-      "id": 4
+      "id": 5
+    },
+    {
+      "text": "Attend Google I/O",
+      "day": "May, 2022",
+      "reminder": true,
+      "id": 6
     }
   ]
 }
