@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Doctors appointment",
+      "day": "Feb 5th at 2:30pm",
+      "reminder": true
+    },
+    {
+      "text": "build project",
+      "day": "8th may, 2021",
+      "reminder": true,
+      "id": 3
+    },
+    {
+      "text": "travel nyc",
+      "day": "8th october, 2022",
+      "reminder": false,
+      "id": 4
+    }
+  ]
+}
